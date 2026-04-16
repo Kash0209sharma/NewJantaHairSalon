@@ -23,6 +23,22 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleNavClick = (e, href) => {
+    e.preventDefault();
+    setOpen(false);
+    
+    // Extract the ID from the href
+    const targetId = href.replace('#', '');
+    const targetElement = document.getElementById(targetId);
+    
+    if (targetElement) {
+      // Use setTimeout to ensure menu closes before scrolling
+      setTimeout(() => {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    }
+  };
+
   return (
     <>
       <header
@@ -37,7 +53,12 @@ export default function Navbar() {
 
           <nav className="hidden items-center gap-8 md:flex">
             {navItems.map((item) => (
-              <a key={item.href} href={item.href} className="text-sm font-medium text-muted transition hover:text-primary">
+              <a 
+                key={item.href} 
+                href={item.href} 
+                onClick={(e) => handleNavClick(e, item.href)}
+                className="text-sm font-medium text-muted transition hover:text-primary"
+              >
                 {item.label}
               </a>
             ))}
@@ -71,7 +92,7 @@ export default function Navbar() {
                   <a
                     key={item.href}
                     href={item.href}
-                    onClick={() => setOpen(false)}
+                    onClick={(e) => handleNavClick(e, item.href)}
                     className="block rounded-2xl px-4 py-3 text-base font-medium text-primary transition hover:bg-background"
                   >
                     {item.label}
