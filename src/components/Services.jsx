@@ -4,11 +4,11 @@ import { FaPalette } from 'react-icons/fa';
 import { RiShieldStarFill } from 'react-icons/ri';
 
 const services = [
-  { icon: GiScissors, title: 'Signature Haircut', description: 'Sharp styling and tailored finish', price: '$45' },
-  { icon: RiShieldStarFill, title: 'Beard Sculpting', description: 'Shaping with precise definition', price: '$30' },
-  { icon: FaPalette, title: 'Heritage Color', description: 'Rich tone with artisan technique', price: '$65' },
-  { icon: GiRazor, title: 'Classic Shave', description: 'Royal hot towel ritual', price: '$35' },
-  { icon: GiCutDiamond, title: 'Young Master', description: 'Gentle grooming for youthful style', price: '$25' },
+  { icon: GiScissors, title: 'Signature Haircut', description: 'Sharp styling and tailored finish', price: '₹150' },
+  { icon: RiShieldStarFill, title: 'Beard Sculpting', description: 'Shaping with precise definition', price: '₹100' },
+  { icon: FaPalette, title: 'Heritage Color', description: 'Rich tone with artisan technique', price: '₹100' },
+  { icon: GiRazor, title: 'Classic Shave', description: 'Royal hot towel ritual', price: '₹150' },
+  { icon: GiCutDiamond, title: 'Young Master', description: 'Gentle grooming for youthful style', price: '₹200' },
 ];
 
 const cardVariants = {

@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { FaStar } from 'react-icons/fa';
 import { useState } from 'react';
 import BookingModal from './BookingModal';
+import heroImage from '../images/hairsalon_image0.jpg';
 
 const heroVariants = {
   hidden: { opacity: 0, y: 24 },
@@ -62,7 +63,7 @@ export default function Hero() {
           >
             <div className="hero-shadow overflow-hidden rounded-[2.5rem] bg-white">
               <img
-                src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1000&q=80"
+                src={heroImage}
                 alt="Barber at work"
                 className="h-full w-full object-cover"
               />

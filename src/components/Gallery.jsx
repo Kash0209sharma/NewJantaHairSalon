@@ -1,11 +1,16 @@
 import { motion } from 'framer-motion';
+import galleryImage1 from '../images/hairsalon_image1.png';
+import galleryImage2 from '../images/hairsalon_image2.jpg';
+import galleryImage3 from '../images/hairsalon_image3.jpg';
+import galleryImage4 from '../images/hairsalon_image4.jpg';
+import galleryImage5 from '../images/hairsalon_image5.jpg';
 
 const galleryImages = [
-  'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=900&q=80',
-  'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=700&q=80',
-  'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=700&q=80',
-  'https://images.unsplash.com/photo-1508326379299-1a4f31a1e2d1?auto=format&fit=crop&w=700&q=80',
-  'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=700&q=80',
+  galleryImage1,
+  galleryImage2,
+  galleryImage3,
+  galleryImage4,
+  galleryImage5,
 ];
 
 export default function Gallery() {
@@ -34,7 +39,7 @@ export default function Gallery() {
           <img src={galleryImages[0]} alt="Large gallery" className="h-[540px] w-full object-cover" />
         </motion.div>
 
-        <div className="grid gap-5 sm:grid-cols-2 sm:grid-rows-2">
+        <div className="grid gap-5 sm:grid-cols-2 sm:grid-rows-2 lg:h-[540px]">
           {galleryImages.slice(1).map((src, index) => (
             <motion.div
               key={src}

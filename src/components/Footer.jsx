@@ -10,13 +10,13 @@ export default function Footer() {
             A legacy of bespoke grooming for the modern gentleman. Experience every appointment as a refined expression of care, comfort, and craftsmanship.
           </p>
           <div className="flex items-center gap-4 text-white">
-            <a href="#" className="transition hover:text-accent">
+            <a href="https://www.instagram.com/umang5171?igsh=MjVmdHFhenR6azVi" className="transition hover:text-accent">
               <FaInstagram size={18} />
             </a>
-            <a href="#" className="transition hover:text-accent">
+            <a href="https://www.instagram.com/umang5171?igsh=MjVmdHFhenR6azVi" className="transition hover:text-accent">
               <FaFacebookF size={18} />
             </a>
-            <a href="#" className="transition hover:text-accent">
+            <a href="https://www.instagram.com/umang5171?igsh=MjVmdHFhenR6azVi" className="transition hover:text-accent">
               <FaTwitter size={18} />
             </a>
           </div>
@@ -43,9 +43,14 @@ export default function Footer() {
         <div className="space-y-4 text-sm text-[#e6dfc8]">
           <h4 className="text-sm font-semibold uppercase tracking-[0.35em] text-[#d4cdbf]">Our Atelier</h4>
           <p>Shop no: 11 , APMC Market , Matar - Khambhat Road , Matar</p>
-          <p>Mon - Sat: 09:00 - 20:00</p>
-          <p>Sunday: 10:00 - 18:00</p>
-          <p className="mt-3 font-semibold text-white">+91 98765 43210</p>
+          <p className="mt-3 font-semibold text-white">Hours</p>
+          <p>Mon - Sat:</p>
+          <p className="ml-3 text-[#d4cdbf]">Morning: 09:00 AM - 01:30 PM</p>
+          <p className="ml-3 text-[#d4cdbf]">Evening: 03:30 PM - 10:00 PM</p>
+          <p className="mt-2">Sunday:</p>
+          <p className="ml-3 text-[#d4cdbf]">Morning: 08:00 AM - 02:00 PM</p>
+          <p className="ml-3 text-[#d4cdbf]">Evening: 03:30 PM - 11:00 PM</p>
+          <p className="mt-3 font-semibold text-white">+91 99249 97601</p>
         </div>
       </div>
       <div className="border-t border-[#333] px-6 py-6 text-center text-sm text-[#8d8a7d] sm:px-8 lg:px-12">
