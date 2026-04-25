@@ -8,6 +8,11 @@ const appointmentSchema = new mongoose.Schema({
   date: { type: Date, required: true },
   time: { type: String, required: true },
   notes: { type: String, default: '' },
+  status: {
+    type: String,
+    enum: ['booked', 'confirmed', 'completed', 'cancelled'],
+    default: 'booked',
+  },
   createdAt: { type: Date, default: Date.now },
 });
 

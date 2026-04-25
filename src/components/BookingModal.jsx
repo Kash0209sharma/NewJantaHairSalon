@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { API_BASE_URL, getApiBaseError } from '../lib/api';
 
 const services = [
   'Signature Haircut - ₹150',
@@ -32,12 +33,18 @@ export default function BookingModal({ isOpen, onClose }) {
       return;
     }
 
+    if (!API_BASE_URL) {
+      setSlots([]);
+      setMessage(getApiBaseError());
+      return;
+    }
+
     const fetchSlots = async () => {
       setFetchingSlots(true);
       setMessage('');
 
       try {
-        const response = await fetch(`http://localhost:5000/api/appointments/available/${formData.date}`);
+        const response = await fetch(`${API_BASE_URL}/appointments/available/${formData.date}`);
         const data = await response.json();
 
         if (response.ok) {
@@ -74,8 +81,14 @@ export default function BookingModal({ isOpen, onClose }) {
     setLoading(true);
     setMessage('');
 
+    if (!API_BASE_URL) {
+      setLoading(false);
+      setMessage(getApiBaseError());
+      return;
+    }
+
     try {
-      const response = await fetch('http://localhost:5000/api/appointments', {
+      const response = await fetch(`${API_BASE_URL}/appointments`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),

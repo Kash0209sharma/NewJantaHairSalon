@@ -1,6 +1,7 @@
 const express = require('express');
 const Joi = require('joi');
 const Appointment = require('../models/Appointment');
+const { requireAdmin } = require('../utils/adminAuth');
 
 const router = express.Router();
 
@@ -13,12 +14,13 @@ const appointmentSchema = Joi.object({
   date: Joi.string().required(),
   time: Joi.string().required(),
   notes: Joi.string().optional().allow(''),
+  status: Joi.string().valid('booked', 'confirmed', 'completed', 'cancelled').optional(),
 });
 
 // Get all appointments (admin use)
-router.get('/', async (req, res) => {
+router.get('/', requireAdmin, async (req, res) => {
   try {
-    const appointments = await Appointment.find().sort({ date: 1 });
+    const appointments = await Appointment.find().sort({ date: 1, time: 1, createdAt: 1 });
     res.json(appointments);
   } catch (err) {
     console.error('Error fetching appointments:', err);
@@ -38,6 +40,7 @@ router.post('/', async (req, res) => {
     // Convert date string to Date object
     const appointmentData = {
       ...req.body,
+      status: req.body.status || 'booked',
       date: new Date(req.body.date),
     };
 
@@ -73,6 +76,7 @@ router.get('/available/:date', async (req, res) => {
 
     const bookedAppointments = await Appointment.find({
       date: { $gte: startOfDay, $lt: nextDay },
+      status: { $ne: 'cancelled' },
     }).select('time name');
 
     const slots = allTimes.map((time) => {
