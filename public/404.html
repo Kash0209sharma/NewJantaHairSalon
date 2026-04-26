@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirecting...</title>
+    <script>
+      (function () {
+        var repoBase = '/NewJantaHairSalon/';
+        var pathname = window.location.pathname;
+
+        // Turn a missing GitHub Pages route like /NewJantaHairSalon/admin
+        // into the hash-based route the app understands: /NewJantaHairSalon/#/admin
+        var route = pathname.indexOf(repoBase) === 0 ? pathname.slice(repoBase.length) : pathname;
+        route = route.replace(/^\/+/, '').replace(/\/+$/, '');
+
+        var target = repoBase + '#/' + route + window.location.search + window.location.hash;
+        window.location.replace(target);
+      })();
+    </script>
+  </head>
+  <body>
+    <p>Redirecting to the site...</p>
+  </body>
+</html>
